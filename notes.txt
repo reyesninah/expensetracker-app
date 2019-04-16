@@ -1,0 +1,61 @@
+isAllBlank - walag null empty or blank sa >1 strings
+
+
+Case Study 13: Expense Tracking System
+General Description
+(Details here)
+
+User Stories
+User Story 13.1: View Home Page
+As a User I want to view the application home page when I log in so that I have easy access to the features of the application and quickly see relevant information.
+The user should see the home page of the application after entering the web application’s URL.
+The home page should contain the following:
+1.	Name of application
+2.	Reserved area for functions. Place holders should be placed instead of actual links for functions. Functions will be added through succeeding user stories.
+3.	Reserved area for default views. Nothing to be displayed for now. Views to be displayed will be determined by succeeding user stories.
+Actual content of reserved areas is out of scope and will be specified by other stories.
+Acceptance Criteria
+1.	Base application URL leads to home page.
+2.	Home page displays web application name
+3.	Home page has visible areas for functions and default views.
+
+User Story 13.2: List Expense Categories
+As a User I want to see expense categories so that I can see budget for each category.
+(Details of story here)
+Out-of-scope
+(Details here)
+Dependencies
+(Details here)
+Acceptance Criteria
+1.	(Criteria 1)
+2.	(Criteria 2)
+3.	(Criteria 3)
+
+User Story 13.3: Add Expense Category
+As a User I want to add an expense category so that manage my budget better.
+
+User Story 13.4: Set Monthly Budget for a Category 
+As a User I want to be able to set the monthly budget for a category so that I can budget my money.
+
+User Story 13.5: Add Expense
+As a User I want to add an expense transaction under a budget category so that I can track my expenses under that category.
+
+User Story 13.6: Show Budget Report for Current Month
+As a User I want to see a budget report for the current month so that I can see how well I’m budgeting my money.
+
+User Story 13.7: Show Budget Report for a Category
+As a User I want to see all my expenses for an expense category so that I can see how much I’m spending for that category.
+
+User Story 13.8: Show Category Expenses for a Given Month
+As a User I want to see all my expenses for an expense category so that I can see how much I’m spending for that category.
+
+
+http://webcodesolution.blogspot.com/2017/01/create-animated-pie-chart-using-css3-and-simple-jquery-with-example.html
+
+https://codepen.io/JFarrow/pen/fFrpg
+
+https://app.moneytracker.cc/
+
+https://github.com/ayastreb/money-tracker
+
+https://codepen.io/seklerek/pen/zKDce
