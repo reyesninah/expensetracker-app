@@ -15,12 +15,15 @@ font-size:20px;
 }
 
 
-/* .main-menu:hover,nav.main-menu.expanded {
+.main-menu:hover,nav.main-menu.expanded {
 width:250px;
 overflow:visible;
-} */
+}
 
 .main-menu {
+/* position: sticky;
+position: -webkit-sticky; */
+
 background:#212121;
 border-right:1px solid #e5e5e5;
 position:absolute;

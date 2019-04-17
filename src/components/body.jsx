@@ -4,7 +4,7 @@ import '../css/body.css';
 class Body extends Component {
     render() {
         return (
-            <div className="addItem-form">
+            <section className="addItem-form">
                 <form>
                     <div>
                         <span>Name:</span> 
@@ -28,7 +28,7 @@ class Body extends Component {
                     </div>
                 </form>
                 <div id="button"><span>Add a new expense</span></div>
-            </div>
+            </section>
             
         );
     }

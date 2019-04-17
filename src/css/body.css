@@ -1,72 +1,47 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin,latin-ext);
 
 
-.body{
+/* .body{
     background: #88e894
-}
+} */
   
 .itemAmount{
     color: #e87185;
     text-align: right;
 }
-
-    
-.button{
-    position: relative;
-    top: 0;
-    color: #1e8b86;
-    padding: 20px;
-    text-align: center;
-    line-height: 24px;
-    width: 200px;
-    background-color: brown; 
-    border-radius: 3px;
-    cursor: pointer;
-    margin: auto;
-    /* box-shadow: 0 3px $dark-blue; */
-    transition: 0.1s ease;
-}
-
-/*   
-  &:active
-    position: relative
-    box-shadow: 0 0px $dark-blue
-    top: 3px
-    box-shadow: 0 0 */
     
 .addItem-form{
-    width: 650px;
+    
+    width: 300px;
+    height: 300px;
     margin: 30px auto;
-    padding-left: 15px;
+    /* margin: 30px 30px 30px 30px; */
+    
+    border: solid 2px;
+    position: absolute;
+    left: 20%;
+
 }
   
 form{
-    color: rgb(255, 255, 255);
-    margin: auto;
-    
+    display:inline-block;
+    color: #0a0716;
+    margin: auto; 
+    padding: 15px 15px, 15px, 15px;
+    width:100px;
+    height:50px;
+    background-color: cadetblue;
     
       
 }
-/* select, input{
-    margin-bottom: 25px
-    color: 
-    padding: 10px
-    width: 200px
-    border-radius: 3px
-    border: 0
-    
-    &active
-      border: 1px solid $blue
-      transition: 0.2s ease 
- }
-  
-     */
-  div{
+
+   div{
     display: inline-block;
     margin-right: 10px;
+    padding: 15px 15px, 15px, 15px;
   }
     
-    
+   /* 
   span{
     font-size: 1.3em;
     font-weight: 100;
@@ -87,15 +62,4 @@ form{
   
 #itemAmount{
     width: 100px;
-}
-  
-    
-/* #if-empty
-  text-align: center */ */
-
-
-.center{
-    margin: auto;
-    text-align: center ;
-}
-  
+}*/
