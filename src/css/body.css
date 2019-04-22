@@ -1,65 +1,62 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin,latin-ext);
-
-
-/* .body{
-    background: #88e894
-} */
-  
-.itemAmount{
-    color: #e87185;
-    text-align: right;
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 
+    'Helvetica Neue', sans-serif;
 }
-    
-.addItem-form{
-    
-    width: 300px;
-    height: 300px;
-    margin: 30px auto;
-    /* margin: 30px 30px 30px 30px; */
-    
-    border: solid 2px;
-    position: absolute;
-    left: 20%;
 
+.content-area{
+    max-width: 700px;
+    background-color: yellowgreen;
+    padding: 30px;
+    margin: 0 auto;
 }
-  
+
 form{
-    display:inline-block;
-    color: #0a0716;
-    margin: auto; 
-    padding: 15px 15px, 15px, 15px;
-    width:100px;
-    height:50px;
-    background-color: cadetblue;
-    
-      
+    background-color: blanchedalmond;
 }
 
-   div{
-    display: inline-block;
-    margin-right: 10px;
-    padding: 15px 15px, 15px, 15px;
-  }
-    
-   /* 
-  span{
-    font-size: 1.3em;
-    font-weight: 100;
-    display: inline-block;
-    width: 100px;
-  }
-    
+input {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 
-.itemCategory{
-    width: 50px;
+input:focus {
+    border-color:#333;
 }
-  
-  
-#itemDate{
-    width: 141px;
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    float: right;
 }
- 
-  
-#itemAmount{
-    width: 100px;
-}*/
+
+.form-row{
+    padding: 10px 10px;
+    display: flex;
+}
+
+.form-row label{
+    padding-right: 20px;
+    flex: 1;
+}
+
+.form-row input{
+    flex: 1;
+    height: 40px;
+    flex-basis: 30%;
+}
+
+table{
+    width: 500px;
+    background-color: aqua;
+}
+
