@@ -17,12 +17,25 @@ class App extends Component {
   }
 
   handleChangeInfo = e =>{
-    const{} = e.target;
-
+    const{name, value} = e.target;
     this.setState((prevState) => ({
-      
+      user: {
+        ...prevState.user,
+        [name]: value
+      }
     }));
+  }
 
+  handleAddUser = e => {
+
+    let user = this.state.user;
+    let usersList = [...this.state.usersList];
+
+    usersList.push(user);
+
+    this.setState({usersList : usersList});
+
+    e.preventDefault();
   }
 
   render() {
