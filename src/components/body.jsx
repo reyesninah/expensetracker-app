@@ -15,6 +15,10 @@ import reportByCategory from "./reportByCategory"
 
 import '../css/body.css';
 
+import {
+    getCategoryList, getExpenseList
+  } from '../util/service-helper';
+
 class Body extends Component {
 
     render() {
@@ -110,9 +114,7 @@ class Body extends Component {
                     <Route path="/reports-report-category" component={reportByCategory} />
                     <Route path="/reports-report-month" component={reportByMonth} />
                 </div>
-
             </HashRouter>
-
         );
     }
 }

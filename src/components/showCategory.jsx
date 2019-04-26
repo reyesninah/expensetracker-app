@@ -2,34 +2,29 @@ import React, { Component, Fragment } from 'react';
 import '../css/showCategory.css';
 import axios from 'axios';
 import Proptypes from 'prop-types';
-// import {
-//     getCategoryList
-// } from './util/service-helper.js';
+import {
+    getCategoryList
+} from '../util/service-helper';
 
 class showCategory extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
-
             categoryList: [],
-
             category: {
                 categoryId: '',
                 categoryName: '',
                 categoryBudget: '',
                 categoryDate: ''
             }
-
         };
+        // this.handleChangeInfo = this.handleChangeInfo.bind(this);                                                                                                                                   
     }
-
 
     getCategoryList() {
         axios.get('http://localhost:8080/expensetracker/rest/category/')
             .then(res => {
-                const categoryList = res.data;
-                this.setState({ categoryList: categoryList })
+                this.setState({ categoryList: res.data })
             })
     }
 
@@ -39,7 +34,6 @@ class showCategory extends Component {
 
     handleChangeInfo = e => {
         const { name, value } = e.target;
-
         this.setState((prevState) => ({
             category: {
                 ...prevState.category,
@@ -49,24 +43,21 @@ class showCategory extends Component {
     }
 
     handleAddCategory = e => {
-
         let category = this.state.category;
         let categoryList = [...this.state.categoryList];
-
         categoryList.push(category);
-
         this.setState({ categoryList: categoryList });
-
         e.preventDefault();
     }
 
     render() {
+        let categoryList = this.state.categoryList;
         return (
             <div class="content-area">
                 <div class="list-category">
                     <Fragment>
                         <table className="expense-category">
-                            {/* <caption>All Expense Categories</caption>
+                            <caption>All Expense Categories</caption>
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -74,16 +65,16 @@ class showCategory extends Component {
                                     <th>Budget</th>
                                     <th>Date</th>
                                 </tr>
-                            </thead> */}
+                            </thead>
                             <tbody>
                                 {
-                                    this.props.categoryList.map((category) => {
+                                    categoryList.map((category) => {
                                         return (
                                             <tr>
-                                                <th>{category.categoryId}</th>
-                                                <th>{category.categoryName}</th>
-                                                <th>{category.categoryBudget}</th>
-                                                <th>{category.categoryDate}</th>
+                                                <td>{category.categoryId}</td>
+                                                <td>{category.categoryName}</td>
+                                                <td>{category.categoryBudget}</td>
+                                                <td>{category.categoryDate}</td>
                                             </tr>
 
                                         )
