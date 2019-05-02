@@ -24,79 +24,79 @@ class Body extends Component {
     render() {
         return (
             <HashRouter>
-                <nav class="main-menu">
+                <nav className="main-menu">
                     <ul>
-                        <li class="dashboard">
+                        <li className="dashboard">
                             <NavLink to="/">
-                                <i class="fa fa-home fa-5x"></i>
-                                <span class="nav-text">Dashboard</span>
+                                <i className="fa fa-home fa-5x"></i>
+                                <span className="nav-text">Dashboard</span>
                             </NavLink>
                         </li>
-                        <li class="expenses">
+                        <li className="expenses">
                             <NavLink to="/expense">
-                                <i class="fa fa-list fa-5x"></i>
-                                <span class="nav-text">Expenses </span>
-                                <i class="fa fa-angle-down fa-5x"></i>
+                                <i className="fa fa-list fa-5x"></i>
+                                <span className="nav-text">Expenses </span>
+                                <i className="fa fa-angle-down fa-5x"></i>
                             </NavLink>
-                            <ul class="sub-menu">
-                                <li class="add-expense">
+                            <ul className="sub-menu">
+                                <li className="add-expense">
                                     <NavLink to="/expense-add-expense">
-                                        <i class="fa fa-plus fa-5x"></i>
-                                        <span class="nav-text">Add Transaction </span>
+                                        <i className="fa fa-plus fa-5x"></i>
+                                        <span className="nav-text">Add Transaction </span>
                                     </NavLink>
                                 </li>
-                                <li class="show-expense">
+                                <li className="show-expense">
                                     <NavLink to="/expense-show-expense">
-                                        <i class="fa fa-eye fa-5x"></i>
-                                        <span class="nav-text">Show All </span>
+                                        <i className="fa fa-eye fa-5x"></i>
+                                        <span className="nav-text">Show All </span>
                                     </NavLink>
                                 </li>
                             </ul>
                         </li>
-                        <li class="category">
+                        <li className="category">
                             <NavLink to="/category">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                                <span class="nav-text">Category </span>
-                                <i class="fa fa-angle-down fa-5x"></i>
+                                <i className="fa fa-shopping-cart fa-5x"></i>
+                                <span className="nav-text">Category </span>
+                                <i className="fa fa-angle-down fa-5x"></i>
                             </NavLink>
-                            <ul class="sub-menu">
-                                <li class="add-category">
+                            <ul className="sub-menu">
+                                <li className="add-category">
                                     <NavLink to="/category-add-category">
-                                        <i class="fa fa-plus fa-5x"></i>
-                                        <span class="nav-text">Add Category </span>
+                                        <i className="fa fa-plus fa-5x"></i>
+                                        <span className="nav-text">Add Category </span>
                                     </NavLink>
                                 </li>
-                                <li class="edit-category">
+                                <li className="edit-category">
                                     <NavLink to="/category-edit-category">
-                                        <i class="fa fa-edit fa-5x"></i>
-                                        <span class="nav-text">Edit Budget</span>
+                                        <i className="fa fa-edit fa-5x"></i>
+                                        <span className="nav-text">Edit Budget</span>
                                     </NavLink>
                                 </li>
-                                <li class="show-category">
+                                <li className="show-category">
                                     <NavLink to="/category-show-category">
-                                        <i class="fa fa-eye fa-5x"></i>
-                                        <span class="nav-text">Show All </span>
+                                        <i className="fa fa-eye fa-5x"></i>
+                                        <span className="nav-text">Show All </span>
                                     </NavLink>
                                 </li>
                             </ul>
                         </li>
-                        <li class="reports">
+                        <li className="reports">
                             <NavLink to="/reports">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <span class="nav-text">Reports</span>
-                                <i class="fa fa-angle-down fa-5x"></i>
+                                <i className="fa fa-bar-chart-o fa-5x"></i>
+                                <span className="nav-text">Reports</span>
+                                <i className="fa fa-angle-down fa-5x"></i>
                             </NavLink>
-                            <ul class="sub-menu">
-                                <li class="report-category">
+                            <ul className="sub-menu">
+                                <li className="report-category">
                                     <NavLink to="/reports-report-category">
-                                        <i class="fa fa-folder fa-5x"></i>
-                                        <span class="nav-text">By Category</span>
+                                        <i className="fa fa-folder fa-5x"></i>
+                                        <span className="nav-text">By Category</span>
                                     </NavLink>
                                 </li>
-                                <li class="report-month">
+                                <li className="report-month">
                                     <NavLink to="/reports-report-month">
-                                        <i class="fa fa-calendar fa-5x"></i>
-                                        <span class="nav-text">By Month</span>
+                                        <i className="fa fa-calendar fa-5x"></i>
+                                        <span className="nav-text">By Month</span>
                                     </NavLink>
                                 </li>
                             </ul>

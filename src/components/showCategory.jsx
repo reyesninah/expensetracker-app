@@ -42,13 +42,12 @@ class showCategory extends Component {
         }));
     }
 
-    handleAddCategory = e => {
-        let category = this.state.category;
-        let categoryList = [...this.state.categoryList];
-        categoryList.push(category);
-        this.setState({ categoryList: categoryList });
-        e.preventDefault();
-    }
+    
+    // handleEditCategoryBudget = rowIndex => {
+    //     let categoryList = [...this.state.categoryList];
+    //     categoryList.splice(rowIndex, 1);
+    //     this.setState({ categoryList: categoryList });
+    // }
 
     render() {
         let categoryList = this.state.categoryList;
@@ -68,13 +67,14 @@ class showCategory extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    categoryList.map((category) => {
+                                    categoryList.map((category, index) => {
                                         return (
                                             <tr>
                                                 <td>{category.categoryId}</td>
                                                 <td>{category.categoryName}</td>
                                                 <td>{category.categoryBudget}</td>
                                                 <td>{category.categoryDate}</td>
+                                                <td><button type='button' onClick={() => this.props.handleEditCategoryBudget(index)}>Edit</button></td>
                                             </tr>
 
                                         )
