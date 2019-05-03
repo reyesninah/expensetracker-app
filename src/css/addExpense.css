@@ -18,14 +18,14 @@ form{
     background-color: blanchedalmond;
 }
 
-input {
+input, select {
     padding:5px; 
     border:2px solid #ccc; 
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
-input:focus {
+input:focus, select:focus {
     border-color:#333;
 }
 
@@ -48,7 +48,7 @@ input[type=submit] {
     flex: 1;
 }
 
-.form-row input{
+.form-row input, select{
     flex: 1;
     height: 40px;
     flex-basis: 30%;
@@ -81,11 +81,3 @@ td, th {
     text-align: left; 
     font-size: 18px;
     }
-
-/* .add-expense{
-    display:none;
-}
-
-.add-expense:target{
-    display:block;
-} */

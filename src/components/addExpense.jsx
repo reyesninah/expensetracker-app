@@ -16,17 +16,19 @@ class addExpense extends Component {
                 expenseCategory: ''
             },
             categories: []
+            //selectedCategory: ''
         };
     }
-
-
+    
     componentDidMount() {
-        fetch("http://localhost:8080/expensetracker/rest/category/")
+        const url = 'http://localhost:8080/expensetracker/rest/category/';
+        fetch(url)
             .then((response) => {
                 return response.json();
             })
             .then(data => {
                 let categoriesFromDb = data.map(category => { return { value: category, display: category } })
+                console.log(categoriesFromDb);
                 this.setState({ categories: [{ value: '', display: '(Select category)' }].concat(categoriesFromDb) });
             }).catch(error => {
                 console.log(error);
@@ -78,38 +80,19 @@ class addExpense extends Component {
                             </div>
                             <div className="form-row">
                                 <label htmlFor="category">Category</label>
-                                <input type="text" list="category-type" id="category" placeholder="Select option"
-                                    name="expenseCategory" onChange={this.handleChangeInfo} />
-                                <datalist id="category-type">
-                                    <option value="Food" />
-                                    <option value="Utilities" />
-                                    <option value="Entertainment" />
-                                    
-                                </datalist>
-                                {/* <select value={this.state.expenseCategory}
+                                {/* <input type="text" list="category-type" id="category" placeholder="Select option"
+                                    name="expenseCategory" onChange={(e) => { this.handleChangeInfo(e) }} /> */}
+                                <select name="expenseCategory" value={this.state.expenseCategory} 
                                     onChange={(e) => this.setState({
-                                        expenseCategory: e.target.value, validationError: e.target.value === "" ? "You must select a category " : ""
+                                        expenseCategory: e.target.value,
+                                        validationError: e.target.value === "" ? "You must select a category " : ""
                                     })}>
-                                    {this.state.categories.map((category) =>
-                                        <option key={category.value} value={category.value}>
-                                            {category.display}
-                                        </option>)}
-                                </select> */}
-                            </div>
-
-                            {/* <div className="form-row">
-                                <label htmlFor="category">Category</label>
-                                <select value={this.state.expenseCategory}
-                                    onChange={(e) => this.setState({
-                                        expenseCategory: e.target.value, validationError: e.target.value === "" ? "You must select a category " : ""
-                                    })}>
-                                    {this.state.categories.map((category) =>
-                                        <option key={category.value} value={category.value}>
-                                            {category.display}
+                                    {this.state.categories.map((category, index) =>
+                                        <option key={index} value={category.value.categoryId}>
+                                            {category.display.categoryName}
                                         </option>)}
                                 </select>
-                            </div> */}
-
+                            </div>
                             <div className="form-row">
                                 <label htmlFor="date">Date</label>
                                 <input type="date" id="date" name="expenseDate" onChange={this.handleChangeInfo} />

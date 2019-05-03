@@ -65,7 +65,7 @@ class addCategory extends Component {
                         </div>
                         <div className="form-row">
                             <label htmlFor="budget">Budget</label>
-                            <input type="number" id="budget" name = "categoryBudget" placeholder="0" min="0" step="0.1"
+                            <input type="number" id="budget" name = "categoryBudget" placeholder="1000" min="0" step="0.1"
                                 onChange={this.handleChangeInfo}
                             />
                         </div>

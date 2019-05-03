@@ -43,11 +43,11 @@ class showCategory extends Component {
     }
 
     
-    // handleEditCategoryBudget = rowIndex => {
-    //     let categoryList = [...this.state.categoryList];
-    //     categoryList.splice(rowIndex, 1);
-    //     this.setState({ categoryList: categoryList });
-    // }
+    handleEditCategoryBudget = rowIndex => {
+        let categoryList = [...this.state.categoryList];
+        categoryList.splice(rowIndex, 1);
+        this.setState({ categoryList: categoryList });
+    }
 
     render() {
         let categoryList = this.state.categoryList;
@@ -63,6 +63,7 @@ class showCategory extends Component {
                                     <th>Name</th>
                                     <th>Budget</th>
                                     <th>Date</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
