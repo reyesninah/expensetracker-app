@@ -1,0 +1,46 @@
+form{
+    background-color: blanchedalmond;
+    
+}
+
+label{
+    font-weight: bold;
+}
+
+input {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    display: block;
+}
+
+input:focus {
+    border-color:#333;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    float: right;
+}
+.form-row{
+    padding: 10px 10px;
+    /* display: flex; */
+    display: block;
+}
+ 
+.form-row label{
+    padding-right: 20px;
+    /* flex: 1; */
+}
+
+.form-row input{
+    /* flex: 1;
+    flex-basis: 30%; */
+    height: 40px;
+}

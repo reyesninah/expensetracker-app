@@ -7,7 +7,7 @@ class editCategory extends Component {
 
         return (
             <div class="content-area">
-                <form id="add-category">
+                <form id="edit-category">
                     <div class="form-row">
                         <label for="category">Category</label>
                         <input type="text" list="category-type" id="category" placeholder="Select option" />

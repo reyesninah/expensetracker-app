@@ -1,4 +1,7 @@
-html, body{
+/* @import url(https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css); */ 
+
+
+ html, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,12 +13,16 @@ html, body{
 .content-area{
     max-width: 700px;
     background-color: yellowgreen;
-    padding: 30px;
+    padding: 10px;
     margin: 0 auto;
 }
 
 form{
     background-color: blanchedalmond;
+}
+
+label{
+    font-weight: bold;
 }
 
 input {

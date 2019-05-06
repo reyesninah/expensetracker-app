@@ -13,13 +13,14 @@ class addExpense extends Component {
                 expenseName: '',
                 expenseAmount: '',
                 expenseDate: '',
-                expenseCategory: ''
+                // expenseCategory: '',
+                categoryId: ''
             },
             categories: []
             //selectedCategory: ''
         };
     }
-    
+
     componentDidMount() {
         const url = 'http://localhost:8080/expensetracker/rest/category/';
         fetch(url)
@@ -33,6 +34,7 @@ class addExpense extends Component {
             }).catch(error => {
                 console.log(error);
             });
+
     }
 
     handleChangeInfo = e => {
@@ -46,8 +48,9 @@ class addExpense extends Component {
         let expense = {
             expenseId: this.state.expenseId,
             expenseName: this.state.expenseName,
-            expenseBudget: this.state.expenseBudget,
-            expenseDate: this.state.expenseDate
+            expenseAmount: this.state.expenseAmount,
+            expenseDate: this.state.expenseDate,
+            categoryId: this.state.categoryId
         };
 
         console.log(expense);
@@ -82,9 +85,12 @@ class addExpense extends Component {
                                 <label htmlFor="category">Category</label>
                                 {/* <input type="text" list="category-type" id="category" placeholder="Select option"
                                     name="expenseCategory" onChange={(e) => { this.handleChangeInfo(e) }} /> */}
-                                <select name="expenseCategory" value={this.state.expenseCategory} 
-                                    onChange={(e) => this.setState({
-                                        expenseCategory: e.target.value,
+
+                                {/* <select className="expenseCategory"  ref="dropdown" value={this.state.expenseCategory} */}
+                                {/* expenseCategory: e.target.value, */}
+
+                                <select className="expenseCategory"  ref="dropdown" value={this.state.categoryId}onChange={(e) => this.setState({
+                                        categoryId: e.target.value,
                                         validationError: e.target.value === "" ? "You must select a category " : ""
                                     })}>
                                     {this.state.categories.map((category, index) =>
@@ -102,7 +108,8 @@ class addExpense extends Component {
                                 <input type="number" id="amount" placeholder="How much?"
                                     name="expenseAmount" onChange={this.handleChangeInfo} />
                             </div>
-                            <input type="submit" id="submit" value="Add Expense" />
+                            <input type="submit" id="submit" value="Add Expense"
+                                onClick={this.handleAddExpense} />
                         </form>
                     </div>
                 </div>

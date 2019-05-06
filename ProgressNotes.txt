@@ -1,0 +1,84 @@
+GENERAL CONCERNS:
+1. What FK to use? categoryId or categoryName?
+2. SQL - Numeric or BigDecimal?
+3. Confirm: If no budget provided under given category, set default to 1000?
+
+
+1. View Home Page
+	-Frontend - DONE
+
+2. List Expense Categories
+	- see expense categories so that I can see budget for each category.
+	- Starting expense categories are Utilities, Food, Entertainment. Default budget is P1000. 
+	
+	- Frontend   - DONE
+	- Backend    - DONE
+	- Database   - DONE
+	- Validation -
+	
+3. Add Expense Category
+	- add an expense category so that manage my budget better
+	
+	- Frontend   - DONE
+	- Backend    - DONE
+	- Database   - DONE
+	- Validation - 
+			1. User must not input negative value
+			2. Give default budget of 1000 unless provided
+
+4. Set Monthly Budget for a Category 
+	- set the monthly budget for a category so that I can budget my money.
+	- The user should be able to set the budget for any category for current or future months. 
+	- The budget is not a recurring value, meaning that each month can have a different value. 
+	- For example, budget for food might be higher for December or budget for utilities might be higher for summer months.
+	
+	- Frontend   -  
+			1. Use UI for ShowAllCatgeories, add edit button then prompt DialogBox(Modal) or Show/Hide Form on side
+	- Backend    -	
+	- Database   -	DONE
+	- Validation -	
+			
+
+5. Add Expense
+	- add an expense transaction UNDER A BUDGET CATEGORY so that I can track my expenses under that category.
+	
+	- Frontend -
+			1. Dropdown for Category - Show Distinct for a Range of Date 
+			2. Range of Date - current month as entered in Date field
+	- Backend  -
+	- Database -
+			1. SQL for Show Distinct for a Range of Date of Given Month
+	- Validation -
+			1. UserInputRequired: expenseName, expenseAmount, expenseDate, expenseCategory
+			2. expenseCategory must exist within same monthYear of expenseDate
+			
+6. Show Budget Report for Current Month
+	- see a budget report for the current month so that I can see how well I’m budgeting my money.
+	
+		- show total expense/spent budget AND remaining budget for each category under current month
+		- allow zero and negative values for computed budget
+	
+	- Frontend   -
+	- Backend    -
+	- Database   -
+	- Validation -
+	
+7. Show Budget Report for a Category
+	- see all my expenses for an expense category so that I can see how much I’m spending for that category.
+		
+		- show all expense transactions under a category
+		- total all expenses under a category
+		
+	
+	- Frontend   -
+	- Backend    -
+	- Database   -
+	- Validation -
+	
+8. Show Category Expenses for a Given Month/Year
+	- see total balance for each category for a selected month so that I can see how much I’ve spent in the past
+	
+	- Frontend   -
+	- Backend    -
+	- Database   -
+	- Validation -

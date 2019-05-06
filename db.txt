@@ -1,0 +1,31 @@
+jdbc:hsqldb:hsql://localhost/testdb
+
+CREATE TABLE CATEGORYTBL (
+categoryId INTEGER IDENTITY PRIMARY KEY,
+categoryName VARCHAR(255),
+categoryBudget DECIMAL,
+categoryDate DATE
+);
+
+CREATE TABLE expItemTbl(
+expenseId INTEGER IDENTITY PRIMARY KEY,
+expenseName VARCHAR(255),
+expenseAmount DECIMAL,
+expenseDate DATE,
+categoryId_fk INTEGER
+)
+
+ALTER TABLE EXPENSETBL
+ADD FOREIGN KEY(categoryId_fk)
+REFERENCES CATEGORYTBL(categoryId)
+
+CREATE TABLE EXPENSETBL(
+expenseId INTEGER IDENTITY PRIMARY KEY,
+expenseName VARCHAR(255),
+expenseAmount DOUBLE,
+expenseDate DATE,
+categoryId_fk INTEGER,
+FOREIGN KEY(categoryId)
+REFERENCES EXPENSETBL(categoryId);
+
+java -classpath lib/hsqldb.jar org.hsqldb.server.Server --database.0 file:hsqldb/exptrackerdemo --dbname.0 exptrackerdb

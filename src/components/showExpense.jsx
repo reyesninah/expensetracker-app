@@ -53,8 +53,8 @@ class showExpense extends Component {
     render() {
         let expenseList = this.state.expenseList;
         return (
-            <div class="content-area">
-                <div class="list-expense">
+            <div className="content-area">
+                <div className="list-expense">
                     <Fragment>
                         <table name="expense-table">
                             <caption>All Expense Transactions</caption>
