@@ -8,7 +8,7 @@ import {
 import addExpense from "./addExpense";
 import showExpense from "./showExpense";
 import addCategory from "./addCategory"
-import editCategory from "./editCategory";
+//import editCategory from "./editCategory";
 import showCategory from "./showCategory";
 import reportByMonth from "./reportByMonth"
 import reportByCategory from "./reportByCategory"
@@ -109,7 +109,7 @@ class Body extends Component {
                     <Route path="/expense-add-expense" component={addExpense} />
                     <Route path="/expense-show-expense" component={showExpense} />
                     <Route path="/category-add-category" component={addCategory} />
-                    <Route path="/category-edit-category" component={editCategory} />
+                    {/* <Route path="/category-edit-category" component={editCategory} /> */}
                     <Route path="/category-show-category" component={showCategory} />
                     <Route path="/reports-report-category" component={reportByCategory} />
                     <Route path="/reports-report-month" component={reportByMonth} />

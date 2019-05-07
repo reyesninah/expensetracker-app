@@ -2,7 +2,8 @@ import {
     getCategoryListURL,
     getExpenseListURL,
     addCategoryExpenseURL,
-    addExpenseURL
+    addExpenseURL,
+    editCategoryURL
 } from './service-url';
 import axios from 'axios';
 
@@ -18,10 +19,14 @@ const addCategoryExpense = () => {
 const addExpense = () => {
     return axios.post(addExpenseURL)
 }
+const editCategory = () => {
+    return axios.put(editCategoryURL)
+}
 
 export {
     getCategoryList,
     getExpenseList,
     addCategoryExpense,
-    addExpense
+    addExpense,
+    editCategory
 }

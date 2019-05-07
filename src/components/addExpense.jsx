@@ -28,7 +28,8 @@ class addExpense extends Component {
                 return response.json();
             })
             .then(data => {
-                let categoriesFromDb = data.map(category => { return { value: category, display: category } })
+                let categoriesFromDb = data.map(category => 
+                    { return { value: category, display: category } })
                 console.log(categoriesFromDb);
                 this.setState({ categories: [{ value: '', display: '(Select category)' }].concat(categoriesFromDb) });
             }).catch(error => {
