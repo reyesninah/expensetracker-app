@@ -23,7 +23,8 @@ class showCategory extends Component {
                 // categoryDate: props.categoryDate
             },
             showForm: false,
-            categoryBudget : 0
+            // categoryBudget : 0,
+            categoryBudgetForm: ''
         };
 
     }
@@ -54,13 +55,14 @@ class showCategory extends Component {
             })
     }
 
-    handleChangeInfo = e => {
+    handleChangeInfo = (e) => {
         const { name, value } = e.target;
         this.setState((prevState) => ({
             category: {
                 ...prevState.category,
                 [name]: value
-            }
+            },
+            //categoryBudgetForm:e.target.value
         }));
     }
 
@@ -79,15 +81,20 @@ class showCategory extends Component {
         
         e.preventDefault();
 
+        console.log( "Values of id, budget and e after prevDef",categoryId, categoryBudget, e)
+
         const updateBudget = {
             //categoryId: this.setState.categoryId,
             //categoryBudget: this.state.categoryBudget
             categoryId : categoryId,
-            categoryBudget : categoryBudget
+           // categoryBudget : categoryBudget
+           categoryBudgetForm : this.state.categoryBudget
         }
+        console.log("UPdateBudgetObject" , updateBudget)
         console.log("categoryBudgetInitial : ", categoryBudget)
         //console.log("updateBudget1 " + this.state.categoryId);
         console.log("updateBudget1ID: " + categoryId) 
+        console.log("categoryBudgetUpdated : ", this.state.categoryBudget)
 
         const editUrl = 'http://localhost:8080/expensetracker/rest/category/'
         +categoryId;
@@ -151,8 +158,8 @@ class showCategory extends Component {
                                                     <div className="form-row">
                                                         <div className="form-row">
                                                             <label htmlFor="budget">Budget</label>
-                                                            <input type="number" id="budget" name = "categoryBudgetNew"
-                                                                //value={this.state.categoryBudget}
+                                                            <input type="number" id="budget" name = "categoryBudgetForm"
+                                                                value={this.state.categoryBudget}
                                                                 onChange={this.handleChangeInfo} />
                                                         </div>
                                                         <input type="submit" id="submit" value="OK"
