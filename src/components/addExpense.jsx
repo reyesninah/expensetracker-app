@@ -44,6 +44,16 @@ class addExpense extends Component {
         });
     }
 
+    handleChangeInfoNumber = (e) => {
+        const re = /^[0-9\b]+$/;
+      if (e.target.value === '' || re.test(e.target.value)) {
+         this.setState({value: e.target.value})
+      }
+        // this.setState({
+        //     [e.target.name]: e.target.value
+        // });
+    }
+
     handleAddExpense = e => {
 
         let expense = {
@@ -71,7 +81,8 @@ class addExpense extends Component {
             })
     }
 
-    render() {
+    
+   render() {
         return (
             <Fragment>
                 <div className="main-content">
@@ -106,8 +117,10 @@ class addExpense extends Component {
                             </div>
                             <div className="form-row">
                                 <label htmlFor="amount">Amount</label>
-                                <input type="number" id="amount" placeholder="How much?"
-                                    name="expenseAmount" onChange={this.handleChangeInfo} />
+                                <input type="number" id="amount" placeholder="How much?" min="0" step="1"
+                                    name="expenseAmount" 
+                                    onChange={this.handleChangeInfo} />
+                                    
                             </div>
                             <input type="submit" id="submit" value="Add Expense"
                                 onClick={this.handleAddExpense} />

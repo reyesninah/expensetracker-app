@@ -14,9 +14,13 @@ class showCategory extends Component {
             categoryList: [],
             category: {
                 categoryId: '',
+                // categoryId: props.categoryId,
+                // categoryName:  props.categoryName,
                 categoryName: '',
                 categoryBudget: '',
+                // categoryBudget: props.categoryBudget,
                 categoryDate: ''
+                // categoryDate: props.categoryDate
             },
             showForm: false
         };
@@ -32,10 +36,14 @@ class showCategory extends Component {
         axios.get('http://localhost:8080/expensetracker/rest/category/')
             .then(res => {
                 this.setState({ categoryList: res.data }, () => {
-                    //  console.log(this.state.categoryList);
+                      console.log(this.state.categoryList);
+                      
+                      //get index for categoryBudget inside category object
+                      console.log(res.data);
                     let categoryList = this.state.categoryList;
                     for (let category of categoryList) {
                         category.showForm = false
+                        //this.setState({categoryBudget: categoryList});
                     }
                     this.setState({ categoryList });
                 })
@@ -53,6 +61,7 @@ class showCategory extends Component {
     }
 
     on = (i, e) => {
+        
         let categoryList = this.state.categoryList;
         // console.log("Index value", i);
         // console.log("categoryList[i]", categoryList[i]);
@@ -63,38 +72,22 @@ class showCategory extends Component {
     }
 
     editCategoryBudget = (e) => {
-
-        // let category = {
-        //     categoryId: this.state.categoryId,
-        //     categoryName: this.state.categoryName,
-        //     categoryBudget: this.state.categoryBudget,
-        //     categoryDate: this.state.categoryDate
-        // };
-        // //let category = this.state.category;
-
-        // axios.put('http://localhost:8080/expensetracker/rest/category', category)
-        //     .then(res => {
-        //         this.setState({ categoryList: res.data })
-        //     })
-        //     let categoryList = this.state.categoryList;
-        // //category.showForm = false;
-
-        //const categoryId = this.state.categoryId;
-
+        e.preventDefault();
         const updateBudget = {
-            categoryId: this.setState.categoryId,
-            categoryBudget: this.setState.categoryBudget
+            //categoryId: this.setState.categoryId,
+            categoryBudget: this.state.categoryBudget
         }
-        console.log("updateBudget1 " + updateBudget);
+        console.log("updateBudget1 " + this.state.categoryId);
 
         const editUrl = 'http://localhost:8080/expensetracker/rest/category/'
-           // + this.setState.categoryId;
+            + this.state.categoryId;
+            //+ this.state.categoryId;
         console.log("editURL: " + editUrl);
 
         axios.put(editUrl, updateBudget)
             .then(res => { console.log("check update"); console.log("res " + res); })
 
-        console.log("updateBudget2 " + updateBudget);
+        console.log("updateBudget2 " + this.state.categoryId);
         this.setState({
             showForm: false
         })
@@ -132,9 +125,6 @@ class showCategory extends Component {
                                         <td >{category.categoryBudget}</td>
                                         <td>{category.categoryDate}</td>
                                         <th><button type='submit' className="edit-budget"
-                                            // onClick={(i, e) => { console.log("Index value:", i) }} >
-                                            //onClick={(i, e) => { this.on(i, e) }} > */}
-                                            //onClick={()=> {this.on(i,e)} }>
                                             onClick={(e) => { this.on(i, e) }} >
 
                                             Edit Budget</button>
@@ -144,9 +134,9 @@ class showCategory extends Component {
                                                     <div className="form-row">
                                                         <div className="form-row">
                                                             <label htmlFor="budget">Budget</label>
-                                                            <input type="number" id="budget"
-                                                                value={this.state.categoryBudget} 
-                                                                onChange= {this.handleChangeInfo}/>
+                                                            <input type="number" id="budget" name = "categoryBudget"
+                                                                value={this.state.categoryBudget}
+                                                                onChange={this.handleChangeInfo} />
                                                         </div>
                                                         <input type="submit" id="submit" value="OK"
                                                             onClick={this.editCategoryBudget} />
