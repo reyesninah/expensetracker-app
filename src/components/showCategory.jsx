@@ -14,22 +14,23 @@ class showCategory extends Component {
             categoryList: [],
             category: {
                 categoryId: '',
-                // categoryId: props.categoryId,
-                // categoryName:  props.categoryName,
                 categoryName: '',
                 categoryBudget: '',
-                // categoryBudget: props.categoryBudget,
                 categoryDate: ''
+                // categoryId: props.categoryId,
+                // categoryName:  props.categoryName,
+                // categoryBudget: props.categoryBudget,
                 // categoryDate: props.categoryDate
             },
-            showForm: false
+            showForm: false,
+            categoryBudget : 0
         };
+
     }
 
     componentDidMount() {
         this.getCategoryList();
         //this.editCategoryBudget();
-
     }
 
     getCategoryList() {
@@ -39,13 +40,16 @@ class showCategory extends Component {
                       console.log(this.state.categoryList);
                       
                       //get index for categoryBudget inside category object
-                      console.log(res.data);
+                      //console.log(res.data);
+                      console.log(this.state.categoryList.map(cat=>cat.categoryBudget))
+
                     let categoryList = this.state.categoryList;
                     for (let category of categoryList) {
                         category.showForm = false
                         //this.setState({categoryBudget: categoryList});
                     }
                     this.setState({ categoryList });
+
                 })
             })
     }
@@ -71,31 +75,45 @@ class showCategory extends Component {
         // console.log(i);
     }
 
-    editCategoryBudget = (e) => {
+    editCategoryBudget = (categoryId, categoryBudget, e) => {
+        
         e.preventDefault();
+
         const updateBudget = {
             //categoryId: this.setState.categoryId,
-            categoryBudget: this.state.categoryBudget
+            //categoryBudget: this.state.categoryBudget
+            categoryId : categoryId,
+            categoryBudget : categoryBudget
         }
-        console.log("updateBudget1 " + this.state.categoryId);
+        console.log("categoryBudgetInitial : ", categoryBudget)
+        //console.log("updateBudget1 " + this.state.categoryId);
+        console.log("updateBudget1ID: " + categoryId) 
 
         const editUrl = 'http://localhost:8080/expensetracker/rest/category/'
-            + this.state.categoryId;
+        +categoryId;
+            //+ this.state.categoryId;
             //+ this.state.categoryId;
         console.log("editURL: " + editUrl);
 
         axios.put(editUrl, updateBudget)
-            .then(res => { console.log("check update"); console.log("res " + res); })
+            .then(res => { 
+                console.log("check update"); 
+                console.log("res " + res); 
+            })
 
-        console.log("updateBudget2 " + this.state.categoryId);
+        //console.log("updateBudget2 " + this.state.categoryId);
+        console.log("upadteBudget2ID: " + categoryId)
         this.setState({
             showForm: false
         })
+
+        console.log("value of e", e)
     }
 
     render() {
         let categoryList = this.state.categoryList;
         //console.log("checking categoryList value: ", categoryList)
+        console.log("this.state", this.state);
         return (
 
             <Fragment>
@@ -104,7 +122,6 @@ class showCategory extends Component {
                         {/* <Fragment> */}
                         <label htmlFor="table">All Expense Categories</label>
                         <table className="expense-category">
-                            {/* <caption>All Expense Categories</caption> */}
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -134,12 +151,17 @@ class showCategory extends Component {
                                                     <div className="form-row">
                                                         <div className="form-row">
                                                             <label htmlFor="budget">Budget</label>
-                                                            <input type="number" id="budget" name = "categoryBudget"
-                                                                value={this.state.categoryBudget}
+                                                            <input type="number" id="budget" name = "categoryBudgetNew"
+                                                                //value={this.state.categoryBudget}
                                                                 onChange={this.handleChangeInfo} />
                                                         </div>
                                                         <input type="submit" id="submit" value="OK"
-                                                            onClick={this.editCategoryBudget} />
+                                                           // onClick={this.editCategoryBudget} />
+                                                           onClick={(e)=>{
+                                                            this.editCategoryBudget(category.categoryId, category.categoryBudget, e)
+                                                              // this.editCategoryBudget(e, category.categoryId, category.categoryBudget)
+                                                           }}/>
+                                                           {/* onClick{ (e) => {this.editCategoryBudget(e, category.categoryId} } */}
                                                     </div>
                                                 </form>
 
