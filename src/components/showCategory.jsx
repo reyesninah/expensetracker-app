@@ -23,7 +23,7 @@ class showCategory extends Component {
                 // categoryDate: props.categoryDate
             },
             showForm: false,
-            // categoryBudget : 0,
+             categoryBudget : 0,
             categoryBudgetForm: ''
         };
 
@@ -86,9 +86,10 @@ class showCategory extends Component {
         const updateBudget = {
             //categoryId: this.setState.categoryId,
             //categoryBudget: this.state.categoryBudget
-            categoryId : categoryId,
-           // categoryBudget : categoryBudget
-           categoryBudgetForm : this.state.categoryBudget
+           // categoryId : categoryId,
+           categoryBudget : categoryBudget
+           //categoryBudgetForm : this.state.categoryBudget
+           //categoryBudgetForm : categoryBudget
         }
         console.log("UPdateBudgetObject" , updateBudget)
         console.log("categoryBudgetInitial : ", categoryBudget)
@@ -105,14 +106,21 @@ class showCategory extends Component {
         axios.put(editUrl, updateBudget)
             .then(res => { 
                 console.log("check update"); 
-                console.log("res " + res); 
+                console.log("res " + res.data); 
+            })
+            .catch((err)=>{
+                if (err.response){
+                    console.log("something went wrong", err.response.data)
+                }
             })
 
         //console.log("updateBudget2 " + this.state.categoryId);
         console.log("upadteBudget2ID: " + categoryId)
         this.setState({
             showForm: false
-        })
+           },
+           ()=>this.componentDidMount()
+           )
 
         console.log("value of e", e)
     }
@@ -159,7 +167,7 @@ class showCategory extends Component {
                                                         <div className="form-row">
                                                             <label htmlFor="budget">Budget</label>
                                                             <input type="number" id="budget" name = "categoryBudgetForm"
-                                                                value={this.state.categoryBudget}
+                                                                //value={this.state.categoryBudget}
                                                                 onChange={this.handleChangeInfo} />
                                                         </div>
                                                         <input type="submit" id="submit" value="OK"

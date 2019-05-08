@@ -25,7 +25,8 @@ class showExpense extends Component {
     getExpenseList() {
         axios.get('http://localhost:8080/expensetracker/rest/expense/')
             .then(res => {
-                this.setState({ expenseList: res.data })
+                this.setState({ expenseList: res.data }); console.log(res.data)
+
             })
     }
 
@@ -42,7 +43,7 @@ class showExpense extends Component {
             }
         }));
     }
-    
+
     render() {
         let expenseList = this.state.expenseList;
         return (
