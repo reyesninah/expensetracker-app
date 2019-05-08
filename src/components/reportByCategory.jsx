@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import '../css/reportByCategory.css';
-import Proptypes from 'prop-types';
+import React, { Component, Fragment } from 'react';
+import '../css/addExpense.css';
 import axios from 'axios';
-
+import Proptypes from 'prop-types';
 
 class reportByCategory extends Component {
 
@@ -15,51 +14,75 @@ class reportByCategory extends Component {
                 expenseName: '',
                 expenseAmount: '',
                 categoryDate: ''
-            }
+            },
+            category: "",
+            total: 0
         };
         // this.handleChangeInfo = this.handleChangeInfo.bind(this);                                                                                                                                   
     }
 
-    getExpenseList() {
+    getExpenseList = () => {
         axios.get('http://localhost:8080/expensetracker/rest/category/report/')
             .then(res => {
-                this.setState({ categoryReportList: res.data }); 
+                this.setState({ categoryReportList: res.data });
                 console.log(res.data)
 
             })
     }
-    
+
+    setCategory = (category) => {
+        this.setState({ category }, () => {
+            let total = 0
+            for (let category of this.state.categoryReportList) {
+                if (category.categoryName === this.state.category) {
+                    total += total + category.expenseAmount
+                }
+            }
+            this.setState({ total }, () => {
+                console.log("this.state: ", this.state)
+            })
+        })
+    }
+
     render() {
         return (
             <div class="content-area">
                 <div class="list-category">
                     <table name="expense-category">
-                         <caption>Report By Category</caption>
+                        <caption>Report By Category</caption>
+
+                        <select className="expenseCategory" ref="dropdown"
+                            onChange={(e) => this.setCategory(e.target.value)}>
+                            {this.state.categoryReportList.map((category, index) =>
+                                <option key={index} value={category.categoryId}>
+                                    {category.categoryName}
+                                </option>
+                            )}
+                        </select>
                         <thead>
-                                <tr>
-                                    <th>Category</th>
-                                    <th>Item</th>
-                                    <th>Amount</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    categoryReportList.map((categoryReport) => {
-                                        return (
-                                            <tr>
-                                                <td>{categoryReport.categoryName}</td>
-                                                <td>{categoryReport.expenseName}</td>
-                                                <td>{categoryReport.expenseAmount}</td>
-                                                <td>{categoryReport.categoryDate}</td>
-                                            </tr>
-                                        )
-                                    })
-                                }
-                            </tbody>
+                            <tr>
+                                <th>Expense Date</th>
+                                <th>Expense Name</th>
+                                <th>Expense Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.categoryReportList.map((categoryReport) => {
+                                    // this.state.category === categoryReport.categoryName
+                                    //     ? <tr>
+                                    //         <td>{categoryReport.categoryDate}</td>
+                                    //         <td>{categoryReport.expenseName}</td>
+                                    //         <td>{categoryReport.expenseAmount}</td>
+                                    //     </tr>
+                                    //     : null
+                                })
+                            }
+                        </tbody>
                     </table>
                 </div>
             </div>
+
         );
     }
 }
