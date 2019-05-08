@@ -46,19 +46,21 @@ class reportByCategory extends Component {
 
     render() {
         return (
-            <div class="content-area">
-                <div class="list-category">
+            <div className="content-area">
+                <div className="list-category">
+
+                    <select className="expenseCategory" ref="dropdown"
+                        onChange={(e) => this.setCategory(e.target.value)}>
+                        {this.state.categoryReportList.map((category, index) =>
+                            <option key={index} value={category.categoryId}>
+                                {category.categoryName}
+                            </option>
+                        )}
+                    </select>
+
                     <table name="expense-category">
                         <caption>Report By Category</caption>
 
-                        <select className="expenseCategory" ref="dropdown"
-                            onChange={(e) => this.setCategory(e.target.value)}>
-                            {this.state.categoryReportList.map((category, index) =>
-                                <option key={index} value={category.categoryId}>
-                                    {category.categoryName}
-                                </option>
-                            )}
-                        </select>
                         <thead>
                             <tr>
                                 <th>Expense Date</th>
@@ -68,15 +70,15 @@ class reportByCategory extends Component {
                         </thead>
                         <tbody>
                             {
-                                this.state.categoryReportList.map((categoryReport) => {
-                                    // this.state.category === categoryReport.categoryName
-                                    //     ? <tr>
-                                    //         <td>{categoryReport.categoryDate}</td>
-                                    //         <td>{categoryReport.expenseName}</td>
-                                    //         <td>{categoryReport.expenseAmount}</td>
-                                    //     </tr>
-                                    //     : null
-                                })
+                                this.state.categoryReportList.map((categoryReport) =>
+                                    this.state.category === categoryReport.categoryName
+                                        ? <tr>
+                                            <td>{categoryReport.categoryDate}</td>
+                                            <td>{categoryReport.expenseName}</td>
+                                            <td>{categoryReport.expenseAmount}</td>
+                                        </tr>
+                                        : null
+                                )
                             }
                         </tbody>
                     </table>

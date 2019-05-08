@@ -78,16 +78,6 @@ class addExpense extends Component {
         // });
     }
 
-    // handleChangeInfoNumber = (e) => {
-    //     const re = /^[0-9\b]+$/;
-    //   if (e.target.value === '' || re.test(e.target.value)) {
-    //      this.setState({value: e.target.value})
-    //   }
-    //     // this.setState({
-    //     //     [e.target.name]: e.target.value
-    //     // });
-    // }
-
     handleAddExpense = e => {
 
         let expense = {
